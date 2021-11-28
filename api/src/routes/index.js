@@ -20,7 +20,10 @@ const getApiData = async () => {
             name : d.name,
             height : d.height,
             weight : d.weight,
-            life_span : d.life_span
+            life_span : d.life_span,
+            temperament : d.temperament,
+            image: d.image.url
+
         } 
     });
     return apiInfo;
@@ -59,17 +62,11 @@ router.get("/dogs", async (req, res) => {
 
 router.get("/dogs/:idRaza", async (req, res) => {
     const idRaza = req.params.idRaza;
-    const allDogs = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${YOUR_API_KEY}`);
-    const dog = allDogs.data.filter(d => d.id == idRaza);
-    var obj = {
-        image: dog[0]?.image,
-        name: dog[0]?.name,
-        temperament: dog[0]?.temperament,
-        height: dog[0]?.height,
-        weight: dog[0]?.weight,
-        life_span: dog[0]?.lifespan
-    }
-    dog.length ? res.status(200).send(obj) : res.status(404).send("Dog not found");
+    const allDogs = await getAllDogs();
+    const dog = allDogs.filter(d => d.ID == idRaza);
+    dog.length? 
+    res.status(200).json(dog): 
+    res.status(404).send("Dog not found");
 })
 
 router.get("/temperament", async (req, res) => {
@@ -109,9 +106,9 @@ router.post("/dog", async (req, res) => {
    })
 
    let temps = await Temperament.findAll({
-       where: { name: temperaments}
+       where: { name: temperaments},
    })
-
+   
    dog.addTemperament(temps)
 
    res.status(200).send("Dog created succesfully!")
