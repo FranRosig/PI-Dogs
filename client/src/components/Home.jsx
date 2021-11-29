@@ -1,15 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDogs } from "../actions";
+import { FilterByTemperament, getDogs, getTemperaments } from "../actions";
 import {Link} from "react-router-dom"
 import Card from "./Card";
 import Paginado from "./Paginado";
 import "../components/Styles/Card.css"
+import TemperamentsSelect from "./TemperamentsSelect";
 
 export default function Home () {
     const dispatch = useDispatch();
     const allDogs = useSelector((state) => state.dogs)
+    const allTemperaments = useSelector((state) => state.temperaments)
 
     const [CurrentPage, setCurrentPage] = useState(1);
     const [DogsOnPage, setDogsOnPage] = useState(8);
@@ -23,8 +25,12 @@ export default function Home () {
 
     useEffect(()=>{
         dispatch(getDogs());
+        dispatch(getTemperaments())
     },[dispatch]);
 
+    const handleFilterByTemperament = (e) => {
+        dispatch(FilterByTemperament(e.target.value))
+    }
     
 
     return (
@@ -32,10 +38,10 @@ export default function Home () {
             <Link to= "/dogs">Crear perro</Link>
             <h1>DOGS</h1>
             <div>
-                <select>
-                    <option value ="asc" >Ascendente</option>
-                    <option value ="desc" >Descendente</option>
-                </select>
+                <TemperamentsSelect 
+                allTemperaments={allTemperaments} 
+                handleFilterByTemperament={handleFilterByTemperament}/>
+
                 <div className="flex">
                 {
                     CurrentDogs?.slice(0,4).map(d => (
@@ -60,6 +66,7 @@ export default function Home () {
                     ))
                 }
                 </div>
+
                 <Paginado
                 DogsOnPage={DogsOnPage}
                 allDogs={allDogs.length}
