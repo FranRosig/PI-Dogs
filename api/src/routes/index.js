@@ -18,10 +18,10 @@ const getApiData = async () => {
         return {
             ID : d.id,
             name : d.name,
-            height : d.height,
-            weight : d.weight,
+            height : d.height.metric,
+            weight : d.weight.metric,
             life_span : d.life_span,
-            temperament : d.temperament,
+            temperaments : d.temperament,
             image: d.image.url
 
         } 
@@ -92,7 +92,8 @@ router.post("/dog", async (req, res) => {
     weight,
     life_span,
     createdInDB,
-    temperaments
+    temperaments,
+    image
    } = req.body
 
    
@@ -103,12 +104,14 @@ router.post("/dog", async (req, res) => {
     weight,
     life_span,
     createdInDB,
+    image
    })
 
    let temps = await Temperament.findAll({
        where: { name: temperaments},
    })
-   
+   console.log(temps[0].dataValues.name)
+   console.log(typeof(temps))
    dog.addTemperament(temps)
 
    res.status(200).send("Dog created succesfully!")
