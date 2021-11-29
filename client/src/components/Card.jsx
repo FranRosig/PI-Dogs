@@ -1,12 +1,17 @@
 import React from "react";
+import "../components/Styles/Card.css"
 
-export default function Card({ image, name, temperament, weight }) {
+export default function Card({ image, name, temperaments, weight }) {
     return (
-        <div>
-            <h3>{name}</h3>
-            <h5>{temperament}</h5>
-            <h5>{weight}</h5>
-            <img src={image} alt="img not found" width="200px" height="250px" />
-        </div>
+        
+            <div className="Card">
+                <img className="Img" src={image} alt="img not found" />
+                <div className="Container">
+                    <h3>{name}</h3>
+                    <h5>{temperaments}</h5>
+                    <h5>Entre {weight} Kg</h5>
+                </div>
+            </div>
+        
     )
 }

@@ -1,0 +1,32 @@
+.Card {
+    background-color: rgb(138, 216, 123);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    height: 350px;
+    width: 200px;
+    margin: 10px;
+    border-radius: 3em;
+}
+
+.Card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+.Container {
+    padding: 2px 16px;
+  }
+
+.Img {
+    height: 200px;
+    width: 200px;
+    border-radius: 3vh;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    
+}
+
+.flex {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    padding: 20px 0;
+}
