@@ -15,15 +15,33 @@ const router = Router();
 const getApiData = async () => {
     const apiData = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${YOUR_API_KEY}`);
     const apiInfo = await apiData.data.map(d => {
+        const temperaments = d.temperament?.toString().split(",")
+        const fixedTemps = []
+        temperaments?.forEach((el) => {
+            fixedTemps.push({"name" : el.trim()})
+        })
+        // temperaments?.forEach(el => {
+        //     fixedTemps.push(el.trim().forEach((el) => {
+        //         let obj = { "name": el}
+        //     }))
+        // })
+        const fixedHeight = []
+        d.height.metric.split("-")?.forEach(el => {
+            fixedHeight.push(el.trim())
+        })
+        const fixedWeight = []
+        d.weight.metric.split("-")?.forEach(el => {
+            fixedWeight.push(el.trim())
+        })
         return {
             ID : d.id,
             name : d.name,
-            height : d.height.metric,
-            weight : d.weight.metric,
+            height : fixedHeight,
+            weight : fixedWeight,
             life_span : d.life_span,
-            temperaments : d.temperament,
-            image: d.image.url
-
+            temperaments : fixedTemps,
+            image: d.image.url,
+            api: true
         } 
     });
     return apiInfo;
@@ -96,23 +114,26 @@ router.post("/dog", async (req, res) => {
     image
    } = req.body
 
-   
+   const fixedWeight = []
+        weight.split("-")?.forEach(el => {
+            fixedWeight.push(el.trim())
+        })
 
    let dog = await Breed.create({
     name,
     height,
-    weight,
+    weight: fixedWeight,
     life_span,
     createdInDB,
-    image
+    image: image ? image : "https://www.publicdomainpictures.net/pictures/260000/velka/dog-face-cartoon-illustration.jpg",
+    //temps: temperaments
    })
 
-   let temps = await Temperament.findAll({
+   let associatedTemp = await Temperament.findAll({
        where: { name: temperaments},
    })
-   console.log(temps[0].dataValues.name)
-   console.log(typeof(temps))
-   dog.addTemperament(temps)
+
+   dog.addTemperament(associatedTemp)
 
    res.status(200).send("Dog created succesfully!")
 })
