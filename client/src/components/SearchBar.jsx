@@ -18,11 +18,12 @@ export default function SearchBar () {
     }
 
     return (
-        <div>
+        <div style={{backgroundColor: 'white'}}>
             <input 
             type="text"
             placeholder = "Search..."
             onChange={(e) => handleInput(e)}
+            
             />
             <button onClick={(e) => handleSubmit(e)} type="submit">Search</button>
         </div>

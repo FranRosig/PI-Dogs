@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import {Link} from "react-router-dom";
+import "../components/Styles/LandingPage.css"
 
 export default class LandingPage extends Component {
     render() {
         return (
-            <div>
-                <h1>Wellcome Motherfuckers</h1>
+            <div className="landing">
                 <Link to = "/home">
-                    <button>Ingresar</button>
+                    <button className="button" >Ingresar</button>
                 </Link>
             </div>
         )

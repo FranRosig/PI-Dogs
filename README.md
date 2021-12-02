@@ -92,7 +92,7 @@ __IMPORTANTE__: No se permitirá utilizar librerías externas para aplicar estil
 Se debe desarrollar una aplicación de React/Redux que contenga las siguientes pantallas/rutas.
 
 __Pagina inicial__: deben armar una landing page con
-- [ ] Alguna imagen de fondo representativa al proyecto
+- [ ] Alguna imagen de fondo representativa al proyecto -----
 - [ ] Botón para ingresar al home (`Ruta principal`)
 
 __Ruta principal__: debe contener
@@ -112,14 +112,14 @@ __Ruta principal__: debe contener
 
 __IMPORTANTE__: Dentro de la Ruta Principal se deben mostrar tanto las razas de perros traidas desde la API como así también las de la base de datos, pero NO está permitido almacenar en la base de datos las razas de perros de la API sino que solamente se pueden guardar aquellas creadas desde el form.
 
-__Ruta de detalle de raza de perro__: debe contener
-- [ ] Los campos mostrados en la ruta principal para cada raza (imagen, nombre y temperamento)
-- [ ] Altura
-- [ ] Peso
-- [ ] Años de vida
+__Ruta de detalle de raza de perro__: debe contener ------------
+- [ ] Los campos mostrados en la ruta principal para cada raza (imagen, nombre y temperamento) ---------
+- [ ] Altura -----------
+- [ ] Peso -----------
+- [ ] Años de vida --------
 
 __Ruta de creación de raza de perro__: debe contener
-- [ ] Un formulario __controlado__ con los siguientes campos
+- [ ] Un formulario __controlado__ con los siguientes campos ---------
   - Nombre
   - Altura (Diferenciar entre altura mínima y máxima)
   - Peso (Diferenciar entre peso mínimo y máximo)
@@ -169,6 +169,6 @@ __IMPORTANTE__: No está permitido utilizar los filtrados, ordenamientos y pagin
   - Crea una raza de perro en la base de datos
 
 #### Testing
-- [ ] Al menos tener un componente del frontend con sus tests respectivos
-- [ ] Al menos tener una ruta del backend con sus tests respectivos
-- [ ] Al menos tener un modelo de la base de datos con sus tests respectivos
+- [ ] Al menos tener un componente del frontend con sus tests respectivos --------
+- [ ] Al menos tener una ruta del backend con sus tests respectivos ------------
+- [ ] Al menos tener un modelo de la base de datos con sus tests respectivos --------

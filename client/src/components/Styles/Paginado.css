@@ -1,12 +1,19 @@
+.container {
+    display: flex;
+    justify-content: center;
+
+}
+
 .pagination {
-    display: inline-block;
     padding: 3px;
     margin: 0;
     border-style: solid;
     border-color: rgb(138, 216, 123);;
     border-width: 3px;
     border-radius: 3vh;
-    font-weight: 400
+    font-weight: 400;
+    position: fixed;
+    bottom: 0;
 }
 
 .pagination li {

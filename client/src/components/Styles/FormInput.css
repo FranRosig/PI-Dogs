@@ -1,0 +1,22 @@
+.inputDiv {
+    outline: none;
+}
+
+.input {
+    
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    transition: width 0.4s ease-in-out;
+    outline: none;
+    
+
+}
+
+.input:focus {
+    border-bottom: 3px solid rgb(138, 216, 123);
+    width: 30%;
+    outline: none;
+  }

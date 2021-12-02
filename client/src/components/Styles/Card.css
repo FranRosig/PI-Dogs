@@ -1,32 +1,54 @@
-.Card {
-    background-color: rgb(138, 216, 123);
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    height: 350px;
-    width: 200px;
-    margin: 10px;
-    border-radius: 3em;
+.container,
+.card,
+.card-image {
+  box-sizing: border-box;
+  padding: 0%;
+  margin: 0%;
 }
 
-.Card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
+ body {
+  background-color: rgb(27, 27, 27);
+}
 
-.Container {
-    padding: 2px 16px;
-  }
+.container {
+  display:flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
 
-.Img {
-    height: 200px;
-    width: 200px;
-    border-radius: 3vh;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+.card {
+  background: white;
+  width: 220px;
+  height: 450px;
+  margin: 50px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;/* top to bottom */
+  justify-content: space-between;/* first item at start, last at end */
+}
+
+.card-image {
+  height: 160px;
+  width: 220px;
+  background-size: cover;
+  border-radius: 15px 15px 0 0;
+}
+
+.card h2 {
+  padding: 10px;
+}
+
+.card p {
+  padding: 10px;
+}
+
+.card a {
+  background-color: black;
+  color: white;
+  padding: 15px 20px;
+  display: block;
+  text-align: center;
+  margin: 10px 20px;
+  
     
-}
-
-.flex {
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    padding: 20px 0;
 }
