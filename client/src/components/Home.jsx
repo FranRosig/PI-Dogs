@@ -5,7 +5,7 @@ import { FilterByTemperament, getDogs, getTemperaments, FilterBySource, OrderByN
 import {Link} from "react-router-dom"
 import Card from "./Card";
 import Paginado from "./Paginado";
-import "../components/Styles/Card.css"
+import "../components/Styles/Home.css"
 import TemperamentsSelect from "./TemperamentsSelect";
 import SearchBar from "./SearchBar";
 
@@ -53,82 +53,72 @@ export default function Home () {
 
     return (
         
-        <div>
-            <div>
-                
-                    <SearchBar/>
+        <div className="home">
+            <div className="top_bar">
+                <div className="create_dog_div">
                     <Link to= "/dog">Crear perro</Link>
-                    <select onChange={handleOrderByName}>
-                        <option disabled selected>Alphabetical order</option>
-                        <option value="A-Z">A-Z</option>
-                        <option value="Z-A">Z-A</option>
-                    </select>
-                    
-                    <select onChange={handleOrderByWeight}>
-                        <option disabled selected>Filter by weight</option>
-                        <option value="max_weight">max_weight</option>
-                        <option value="min_weight">min_weight</option>
-                    </select>
-                    
-                    <select onChange={handleFilterBySource} >
-                        <option disabled selected>Filter by source</option>
-                        <option value="Todos">All</option>
-                        <option value="createdInDB">Created</option>
-                        <option value="api">API</option>
-                    </select>
+                </div>
+                <div className="filters_div">        
+                <select onChange={handleOrderByName}>
+                    <option disabled selected>Alphabetical order</option>
+                    <option value="A-Z">A-Z</option>
+                    <option value="Z-A">Z-A</option>
+                </select>
+                        
+                <select onChange={handleOrderByWeight}>
+                    <option disabled selected>Filter by weight</option>
+                    <option value="max_weight">Max</option>
+                    <option value="min_weight">Min</option>
+                </select>
+                        
+                <select onChange={handleFilterBySource} >
+                    <option disabled selected>Filter by source</option>
+                    <option value="Todos">All</option>
+                    <option value="createdInDB">Created</option>
+                    <option value="api">API</option>
+                </select>
                 
-
-                <br />
                 
                 <TemperamentsSelect 
                 allTemperaments={allTemperaments} 
                 handleFilterByTemperament={handleFilterByTemperament}/>
-
-                
-                    <section className="container">
-                        {CurrentDogs?.map(d => (
-                            <Card
-                            key={d.ID} 
-                            name={d.name} 
-                            image={d.image} 
-                            temperaments={d.temperaments} 
-                            weight={d.weight}/>    
-                        ))
-                        }
-                    </section>
-                
-
-                {/* <div className="cards_container">
-                {
-                    CurrentDogs?.slice(0,4).map(d => (
-                        <Card
-                        key={d.name} 
-                        name={d.name} 
-                        image={d.image} 
-                        temperaments={d.temperaments} 
-                        weight={d.weight}/>    
-                    ))
-                }
                 </div>
-                <div className="cards_container">
-                {
-                    CurrentDogs?.slice(4,8).map(d => (
-                        <Card 
-                        key={d.name}
-                        name={d.name} 
-                        image={d.image} 
-                        temperaments={d.temperaments} 
-                        weight={d.weight}/>    
-                    ))
-                }
-                </div> */}
-
-                <Paginado
-                DogsOnPage={DogsOnPage}
-                allDogs={allDogs.length}
-                paginado={paginado}
-                />
+                <SearchBar/>
             </div>
+
+            
+                <section className="container">
+                {CurrentDogs?.slice(0,4).map(d => (
+                    <Card
+                    key={d.ID}
+                    id={d.ID} 
+                    name={d.name} 
+                    image={d.image} 
+                    temperaments={d.temperaments} 
+                    weight={d.weight}/>    
+                ))
+                }
+                </section>
+                <section className="container">
+                {CurrentDogs?.slice(4,8).map(d => (
+                    <Card
+                    key={d.ID}
+                    id={d.ID} 
+                    name={d.name} 
+                    image={d.image} 
+                    temperaments={d.temperaments} 
+                    weight={d.weight}/>    
+                ))
+                }
+                </section>
+            
+            <Paginado
+            DogsOnPage={DogsOnPage}
+            allDogs={allDogs.length}
+            paginado={paginado}
+            />
+            <div className="footer_div"></div>
+            
         </div>
 
         

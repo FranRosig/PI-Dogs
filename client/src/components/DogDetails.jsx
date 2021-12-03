@@ -3,10 +3,11 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../actions";
 import { useEffect } from "react";
+import "../components/Styles/DogDetail.css"
 
-export default function DogDetails (props) {
+export default function DogDetails () {
     const dispatch = useDispatch()
-    let { id } = useParams
+    let { id } = useParams()
     console.log(id)
     
     useEffect(() => {
@@ -14,22 +15,29 @@ export default function DogDetails (props) {
     },[dispatch])
 
     const dog = useSelector((state) => state.detail)
+    console.log(dog)
 
     let fixedTemps = []
-    dog.temperaments?.forEach((el) => fixedTemps.push(el.name))
+    dog[0]?.temperaments?.forEach((el) => fixedTemps.push(el.name))
 
     return (
         <div>
             {
                 dog.length > 0 ? 
-                    <div>
+                    <div className="detail_container">
                         <Link to="/home">Volver</Link>
-                        <img src={dog[0].image} alt="Imagen" />
-                        <h1>{dog[0].name}</h1>
-                        <p>{fixedTemps}</p>
-                        <h5>Entre {dog.height[0]} y {dog.height[1]} cm</h5>
-                        <h5>Entre {dog.weight[0]} y {dog.weight[1]} Kg</h5>
-                        <h5>{dog[0].life_span}</h5>
+                        <div className="details">
+                            <div className="title"><h1>{dog[0].name}</h1></div>
+                            <div className="detail_temperaments">{fixedTemps.map(el => <div className="temp">{el}</div>)}</div>
+                            <div className="details2">
+                                <div className="info"><h2>Height:</h2><h4>Between {dog[0].height[0]} and {dog[0].height[1]} cms</h4></div>
+                                <div className="info"><h2>Weight:</h2><h4>Between {dog[0].weight[0]} and {dog[0].weight[1]} Kg</h4></div>
+                                <div className="info"><h2>Lifespan:</h2><h4>Between {dog[0].life_span} years</h4></div>
+                            </div>
+                        </div>
+                        <div className="image">
+                            <img src={dog[0].image} alt="Imagen" />
+                        </div>
                     </div> : 
 
                     <p>Loading...</p>

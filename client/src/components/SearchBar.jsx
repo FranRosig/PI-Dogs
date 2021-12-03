@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getDogsByName } from "../actions";
+import "./Styles/Home.css"
 
 export default function SearchBar () {
     const dispatch = useDispatch()
@@ -18,10 +19,9 @@ export default function SearchBar () {
     }
 
     return (
-        <div style={{backgroundColor: 'white'}}>
+        <div className="search_bar">
             <input 
             type="text"
-            placeholder = "Search..."
             onChange={(e) => handleInput(e)}
             
             />
