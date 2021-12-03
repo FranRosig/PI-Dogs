@@ -20,19 +20,17 @@ const getApiData = async () => {
         temperaments?.forEach((el) => {
             fixedTemps.push({"name" : el.trim()})
         })
-        // temperaments?.forEach(el => {
-        //     fixedTemps.push(el.trim().forEach((el) => {
-        //         let obj = { "name": el}
-        //     }))
-        // })
+        
         const fixedHeight = []
         d.height.metric.split("-")?.forEach(el => {
             fixedHeight.push(el.trim())
         })
+
         const fixedWeight = []
         d.weight.metric.split("-")?.forEach(el => {
             fixedWeight.push(el.trim())
         })
+
         return {
             ID : d.id,
             name : d.name,
@@ -126,7 +124,6 @@ router.post("/dog", async (req, res) => {
     life_span,
     createdInDB,
     image: image ? image : "https://www.publicdomainpictures.net/pictures/260000/velka/dog-face-cartoon-illustration.jpg",
-    //temps: temperaments
    })
 
    let associatedTemp = await Temperament.findAll({
