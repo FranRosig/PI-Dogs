@@ -7,7 +7,7 @@ export default class LandingPage extends Component {
         return (
             <div className="landing">
                 <Link to = "/home">
-                    <button className="button" >Ingresar</button>
+                    <button className="button" >Enter!</button>
                 </Link>
             </div>
         )

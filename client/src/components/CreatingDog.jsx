@@ -11,11 +11,11 @@ const validate = (form) => {
     if(!form.name) {
         errors.name = "Name is required, it should not contain numbers"
     }
-    if(!form.height) {
-        errors.height = "Height is required, type only numbers separated by a dash (-)"
+    if(!form.min_height || !form.max_height) {
+        errors.height = "Height is required"
     }
-    if(!form.weight) {
-        errors.weight = "Weight is required, type only numbers separated by a dash (-)"
+    if(!form.min_weight || !form.max_weight) {
+        errors.weight = "Weight is required"
     }
     if(!form.life_span) {
         errors.life_span = "Lifespan is required, type only numbers separated by a dash (-)"
@@ -33,8 +33,10 @@ export default function CreatingDog () {
 
     const [form, setForm] = useState({
         name: "",
-        height: "",
-        weight: "",
+        min_height: "",
+        max_height: "",
+        min_weight: "",
+        max_weight: "",
         life_span: "",
         image: "",
         temperaments: []
@@ -45,7 +47,7 @@ export default function CreatingDog () {
     },[dispatch]);
 
     useEffect(()=>{
-        if (form.name.length > 0 && form.height.length > 0 && form.weight.length > 0) setButton(false)
+        if (form.name.length > 0 && form.min_height.length > 0  && form.max_height.length > 0 && form.min_weight.length > 0 && form.max_weight.length > 0) setButton(false)
         else setButton(true)
     }, [form, setButton])
 
@@ -73,8 +75,10 @@ export default function CreatingDog () {
         alert("Perro creado con éxito!");
         setForm({
             name: "",
-            height: "",
-            weight: "",
+            min_height: "",
+            max_height: "",
+            min_weight: "",
+            max_weight: "",
             life_span: "",
             image: "",
             temperaments: []
@@ -105,27 +109,57 @@ export default function CreatingDog () {
                         />
                     </div>
                 <div className="error">{errors.name && <p>{errors.name}</p>}</div>
-                <div className="input_container">
-                    <input className ="input" autoComplete="off"
+                
+                <div className="height_container">
+                <div className="input_container min_height">
+                    <input className ="input input-n" autoComplete="off"
                         type="text"
-                        value={form.height}
-                        name ="height"
+                        value={form.min_height}
+                        name ="min_height"
                         onChange={(e) => handleChange(e)}
-                        placeholder="Min and max height... ex: 20 - 35"
+                        placeholder="Min height..."
                         />
                     </div>
+                
+
+                <div className="input_container max_height">
+                    <input className ="input input-n" autoComplete="off"
+                        type="text"
+                        value={form.max_height}
+                        name ="max_height"
+                        onChange={(e) => handleChange(e)}
+                        placeholder="Max height..."
+                        />
+                    </div>
+                
+                </div>
                 <div className="error">{errors.height && <p>{errors.height}</p>}</div>
                 
-                <div className="input_container">
-                    <input className ="input" autoComplete="off"
+                <div className="weight_container">
+                <div className="input_container min_weight">
+                    <input className ="input input-n" autoComplete="off"
                         type="text"
-                        value={form.weight}
-                        name ="weight"
+                        value={form.min_weight}
+                        name ="min_weight"
                         onChange={(e) => handleChange(e)}
-                        placeholder="Min and max weight... ex: 4 - 10"
+                        placeholder="Min weight..."
                         />
                     </div>
+                
+
+                <div className="input_container max_weight">
+                    <input className ="input input-n" autoComplete="off"
+                        type="text"
+                        value={form.max_weight}
+                        name ="max_weight"
+                        onChange={(e) => handleChange(e)}
+                        placeholder="Max weight..."
+                        />
+                    </div>
+                
+                </div>
                 <div className="error">{errors.weight && <p>{errors.weight}</p>}</div>
+                
                 <div className="input_container">
                     <input className ="input" autoComplete="off"
                         type="text"
@@ -136,6 +170,7 @@ export default function CreatingDog () {
                         />
                     </div>
                 <div className="error">{errors.life_span && <p>{errors.life_span}</p>}</div>
+                
                 <div className="input_container">
                     <input className ="input" autoComplete="off"
                         type="text"

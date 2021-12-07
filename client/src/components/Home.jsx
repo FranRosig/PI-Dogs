@@ -56,7 +56,7 @@ export default function Home () {
         <div className="home">
             <div className="top_bar">
                 <div className="create_dog_div">
-                    <Link to= "/dog">Crear perro</Link>
+                    <Link to= "/dog">CREATE DOG</Link>
                 </div>
                 <div className="filters_div">        
                 <select onChange={handleOrderByName}>
