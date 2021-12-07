@@ -104,25 +104,30 @@ router.get("/temperament", async (req, res) => {
 router.post("/dog", async (req, res) => {
    let {
     name,
-    height,
-    weight,
+    min_height,
+    max_height,
+    min_weight,
+    max_weight,
     life_span,
-    createdInDB,
     temperaments,
     image
    } = req.body
 
+   const fixedHeight = []
+   const minHeight = min_height.trim();
+   const maxHeight = max_height.trim()
+   fixedHeight.push(minHeight, maxHeight)
+
    const fixedWeight = []
-        weight.split("-")?.forEach(el => {
-            fixedWeight.push(el.trim())
-        })
+   const minWeight = min_weight.trim();
+   const maxWeight = max_weight.trim()
+   fixedWeight.push(minWeight, maxWeight)
 
    let dog = await Breed.create({
     name,
-    height,
+    height: fixedHeight,
     weight: fixedWeight,
     life_span,
-    createdInDB,
     image: image ? image : "https://www.publicdomainpictures.net/pictures/260000/velka/dog-face-cartoon-illustration.jpg",
    })
 
