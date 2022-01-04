@@ -18,6 +18,7 @@ export default function SearchBar () {
         dispatch(getDogsByName(name))
     }
 
+
     return (
         <div className="search_bar">
             <input 

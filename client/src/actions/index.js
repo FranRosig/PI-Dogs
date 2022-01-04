@@ -45,6 +45,13 @@ export function OrderByName(payload) {
     }
 }
 
+export function getDogsByTemperament(payload) {
+    return { 
+        type: "DOGS_BY_TEMPERAMENT",
+        payload
+    }
+}
+
 export function getDogsByName (payload) {
     return async function (dispatch) {
         try {

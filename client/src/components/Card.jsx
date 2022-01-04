@@ -1,6 +1,6 @@
 import React from "react";
 import "../components/Styles/Home.css"
-import { Link } from "react-router-dom";
+
 
 export default function Card({ image, name, temperaments, weight, id }) {
     let fixedTemps = []
