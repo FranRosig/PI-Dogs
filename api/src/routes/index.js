@@ -4,12 +4,6 @@ const { Breed, Temperament} = require("../db")
 const { YOUR_API_KEY } = process.env;
 const express = require('express');
 
-
-
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
-
-
 const router = Router();
 
 const getApiData = async () => {
@@ -26,10 +20,19 @@ const getApiData = async () => {
             fixedHeight.push(el.trim())
         })
 
+        if(!fixedHeight[1]) {
+            fixedHeight.push(fixedHeight[0])
+        }
+
         const fixedWeight = []
         d.weight.metric.split("-")?.forEach(el => {
             fixedWeight.push(el.trim())
         })
+
+        
+        if(!fixedWeight[1]) {
+            fixedWeight.push(fixedWeight[0])
+        }
 
         return {
             ID : d.id,
@@ -140,8 +143,7 @@ router.post("/dog", async (req, res) => {
    res.status(200).send("Dog created succesfully!")
 })
 
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
+
 router.use(express.json());
 
 
