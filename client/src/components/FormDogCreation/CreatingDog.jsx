@@ -1,10 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { postDog, getTemperaments } from "../actions";
+import { postDog, getTemperaments } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
-import "../components/Styles/FormSelect.css"
-import "../components/Styles/CreatingDog.css"
 
 const validate = (form) => {
     let errors = {}

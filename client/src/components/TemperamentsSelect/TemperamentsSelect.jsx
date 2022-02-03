@@ -5,9 +5,9 @@ export default function TemperamentsSelect ({allTemperaments, handleFilterByTemp
         <select onChange={handleFilterByTemperament}>
             <option disabled selected>Temperaments</option>
             <option value="Todos">All</option>
-            {allTemperaments.map(d => (
-                <option value={d.name}>{d.name}</option>
+            {allTemperaments.map(temp => (
+                <option value={temp.name}>{temp.name}</option>
             ))}
         </select>
-    )
-}
+    );
+};

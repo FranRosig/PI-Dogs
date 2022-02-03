@@ -1,8 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getDogsByName } from "../actions";
-import "./Styles/Home.css"
+import { getDogsByName } from "../../actions";
 
 export default function SearchBar () {
     const dispatch = useDispatch()

@@ -1,0 +1,9 @@
+ul {
+    list-style-type: none;
+    display: flex;
+
+    justify-content: center;
+    align-content: center;
+
+    gap: 5px;
+}

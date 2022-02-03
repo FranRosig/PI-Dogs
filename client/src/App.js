@@ -1,9 +1,9 @@
 import './App.css';
 import { Route, Routes } from "react-router-dom";
-import LandingPage from "./components/LandingPage"
-import Home from './components/Home';
-import CreatingDog from './components/CreatingDog';
-import DogDetails from './components/DogDetails';
+import LandingPage from "./components/LandingPage/LandingPage"
+import Home from './components/Home/Home';
+import CreatingDog from './components/FormDogCreation/CreatingDog';
+import DogDetails from './components/DogDetails/DogDetails';
 
 function App() {
   return (
