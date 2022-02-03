@@ -33,10 +33,6 @@ module.exports = (sequelize) => {
     image: {
       type: DataTypes.STRING
     },
-    // temps: {
-    //   type: DataTypes.ARRAY(DataTypes.STRING),
-    //   allowNull: false
-    // }
   }, { timestamps: false });
 };
 

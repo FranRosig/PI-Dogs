@@ -6,6 +6,8 @@ const express = require('express');
 
 const router = Router();
 
+
+//--- Get data from api --//
 const getApiData = async () => {
     const apiData = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${YOUR_API_KEY}`);
     const apiInfo = await apiData.data.map(d => {
@@ -48,6 +50,7 @@ const getApiData = async () => {
     return apiInfo;
  };
  
+ //-- Get data from the database --//
  const getDbData = async () => {
      return await Breed.findAll({
         include: {
@@ -60,6 +63,7 @@ const getApiData = async () => {
      })
  };
  
+ //-- Api and database mixed --//
  const getAllDogs = async () => {
      const apiData = await getApiData();
      const dbData = await getDbData();
