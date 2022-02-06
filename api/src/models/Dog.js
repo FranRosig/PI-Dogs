@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
       defaultValue: true
     },
     image: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING(10000)
     },
   }, { timestamps: false });
 };
