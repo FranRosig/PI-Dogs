@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input,
+.btn {
+    margin: 0;
+    padding: 0;
+    height: 30px;
+}
+
+.input {
+    font-size: 2em;
+
+    outline: none;
+
+    padding: 20px;
+    border: none;
+    border-bottom: 3px solid white;
+
+    color: white;
+
+    background-color: black;
+}
+
+.btn {
+    border-radius: 1rem;
+    width: 100px;
+    height: 34px;
+
+    border: 2px solid black;
+    color: white;
+
+    font-family: 'Dongle', sans-serif;
+
+    background-color: black;
+
+    font-size: 2em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    font-weight: 700;
+
+    transition: 0.5s;
+}
+
+.btn:hover {
+    border: 2px solid white;
+}
