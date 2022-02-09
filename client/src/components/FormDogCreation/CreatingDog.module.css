@@ -1,0 +1,317 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    align-content: center;
+
+    font-family: 'Dongle', sans-serif;
+    text-align: center;
+
+    background-color: black;
+
+}
+
+.container h1 {
+    font-size: 3em;
+    text-align: center;
+    color: white;
+}
+
+.container h2 {
+    font-size: 3em;
+    text-align: center;
+    color: white;
+}
+
+.content {
+    grid-column: 2 / 3;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    gap: 5px;
+
+    height: 800px;
+    width: 500px;
+
+    background-color: black;
+
+    text-align: center;
+}
+
+.create_btn {
+    border-radius: 1rem;
+    height: 34px;
+
+    border: 2px solid black;
+    color: white;
+
+    font-family: 'Dongle', sans-serif;
+
+    background-color: black;
+
+    font-size: 2em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    font-weight: 700;
+    
+    transition: 0.5s;
+}
+
+.create_btn:hover {
+    border: 2px solid white;
+}
+
+.home_btn {
+    border-radius: 1rem;
+    width: 100px;
+    height: 34px;
+
+    border: 2px solid black;
+    color: white;
+
+    font-family: 'Dongle', sans-serif;
+
+    background-color: black;
+
+    font-size: 2em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    font-weight: 700;
+    
+    transition: 0.5s;
+}
+
+.home_btn:hover {
+    border: 2px solid white;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+
+    gap: 5px;
+    text-align: center;
+
+}
+
+.weight_container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    gap: 5px;
+    text-align: center;
+
+    font-size: 2em;
+
+    width: 100%;
+}
+
+.height_container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    gap: 5px;
+    text-align: center;
+
+    font-size: 2em;
+
+    width: 100%;
+}
+
+.input_container {
+    text-align: center;
+}
+
+.input_container input {
+    font-size: 2em;
+    width: 350px;
+
+    text-align: center;
+
+    font-family: 'Dongle', sans-serif;
+
+    outline: none;
+    border: none;
+    border-bottom: 3px solid white;
+    background-color: black;
+    color: white;
+}
+
+.error {
+    height: 34px;
+    font-size: 2em;
+    color: red;
+    text-align: center;
+}
+
+.min_weight_container input  {
+    font-size: 1em;
+    text-align: center;
+    font-family: 'Dongle', sans-serif;
+
+    outline: none;
+    border: none;
+    border-bottom: 3px solid white;
+    background-color: black;
+    color: white;
+}
+
+.min_height_container input  {
+    font-size: 1em;
+    text-align: center;
+    font-family: 'Dongle', sans-serif;
+
+    outline: none;
+    border: none;
+    border-bottom: 3px solid white;
+    background-color: black;
+    color: white;
+}
+
+.max_weight_container input  {
+    font-size: 1em;
+    text-align: center;
+    font-family: 'Dongle', sans-serif;
+
+    outline: none;
+    border: none;
+    border-bottom: 3px solid white;
+    background-color: black;
+    color: white;
+}
+
+.max_height_container input  {
+    font-size: 1em;
+    text-align: center;
+    font-family: 'Dongle', sans-serif;
+
+    outline: none;
+    border: none;
+    border-bottom: 3px solid white;
+    background-color: black;
+    color: white;
+}
+
+.min_height_container {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+.min_weight_container {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+.max_height_container {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+.max_weight_container {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+.temps_select {
+    font-size: 2em;
+    font-weight: 600;
+    text-decoration: none;
+
+    padding: 5px 10px;
+
+    background-color: black;
+    color: white;
+    font-family: 'Dongle', sans-serif;
+
+    border: none;
+}
+
+.temps_container {
+    height: 200px;
+    width: 350px;
+    background-color: black;
+
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.added_temp {
+    height: 40px;
+    width: 150px;
+    color: white;
+    background-color: white;
+    position: relative;
+
+    border-radius: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.added_temp p {
+    font-family: 'Dongle', sans-serif;
+    font-size: 2em;
+    color: black;
+    font-weight: 700;
+}
+
+.temps_btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    padding: 5px 8px;
+
+    border: none;
+    border: 1px solid white;
+    outline: none;
+
+    font-size: 12px;
+
+    color: white;
+    font-weight: 600;
+    background-color: black;
+    border-radius: 1rem;
+
+    cursor: pointer;
+}

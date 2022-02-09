@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { postDog, getTemperaments } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
+import CreatingDogCSS from "./CreatingDog.module.css"
 
 const validate = (form) => {
     let errors = {}
@@ -93,12 +94,13 @@ export default function CreatingDog () {
 
 
     return (
-        <div className="containerDC">
-            <Link to="/home"><button>Home</button></Link>
+        <div className={CreatingDogCSS.container}>
+            <div className={CreatingDogCSS.content}>
+            <Link className={CreatingDogCSS.home_btn} to="/home">Home</Link>
             <h1>Create your dog!</h1>
-            <form onSubmit={handleSubmit}>
-                <div className="input_container">
-                    <input className ="input" autoComplete="off"
+            <form className={CreatingDogCSS.form} onSubmit={handleSubmit}>
+                <div className={CreatingDogCSS.input_container}>
+                    <input autoComplete="off"
                         type="text"
                         value={form.name}
                         name ="name"
@@ -106,11 +108,12 @@ export default function CreatingDog () {
                         placeholder="Name..."
                         />
                     </div>
-                <div className="error">{errors.name && <p>{errors.name}</p>}</div>
+
+                <div className={CreatingDogCSS.error}>{errors.name && <p>{errors.name}</p>}</div>
                 
-                <div className="height_container">
-                <div className="input_container min_height">
-                    <input className ="input input-n" autoComplete="off"
+                <div className={CreatingDogCSS.height_container}>
+                <div className={CreatingDogCSS.min_height_container}>
+                    <input autoComplete="off"
                         type="text"
                         value={form.min_height}
                         name ="min_height"
@@ -120,8 +123,8 @@ export default function CreatingDog () {
                     </div>
                 
 
-                <div className="input_container max_height">
-                    <input className ="input input-n" autoComplete="off"
+                <div className={CreatingDogCSS.max_height_container}>
+                    <input autoComplete="off"
                         type="text"
                         value={form.max_height}
                         name ="max_height"
@@ -131,11 +134,11 @@ export default function CreatingDog () {
                     </div>
                 
                 </div>
-                <div className="error">{errors.height && <p>{errors.height}</p>}</div>
+                <div className={CreatingDogCSS.error}>{errors.height && <p>{errors.height}</p>}</div>
                 
-                <div className="weight_container">
-                <div className="input_container min_weight">
-                    <input className ="input input-n" autoComplete="off"
+                <div className={CreatingDogCSS.weight_container}>
+                <div className={CreatingDogCSS.min_weight_container}>
+                    <input autoComplete="off"
                         type="text"
                         value={form.min_weight}
                         name ="min_weight"
@@ -145,8 +148,8 @@ export default function CreatingDog () {
                     </div>
                 
 
-                <div className="input_container max_weight">
-                    <input className ="input input-n" autoComplete="off"
+                <div className={CreatingDogCSS.max_height_container}>
+                    <input autoComplete="off"
                         type="text"
                         value={form.max_weight}
                         name ="max_weight"
@@ -156,10 +159,10 @@ export default function CreatingDog () {
                     </div>
                 
                 </div>
-                <div className="error">{errors.weight && <p>{errors.weight}</p>}</div>
+                <div className={CreatingDogCSS.error}>{errors.weight && <p>{errors.weight}</p>}</div>
                 
-                <div className="input_container">
-                    <input className ="input" autoComplete="off"
+                <div className={CreatingDogCSS.input_container}>
+                    <input autoComplete="off"
                         type="text"
                         value={form.life_span}
                         name ="life_span"
@@ -167,10 +170,10 @@ export default function CreatingDog () {
                         placeholder="Expected lifespan... ex: 14 - 16"
                         />
                     </div>
-                <div className="error">{errors.life_span && <p>{errors.life_span}</p>}</div>
+                <div className={CreatingDogCSS.error}>{errors.life_span && <p>{errors.life_span}</p>}</div>
                 
-                <div className="input_container">
-                    <input className ="input" autoComplete="off"
+                <div className={CreatingDogCSS.input_container}>
+                    <input autoComplete="off"
                         type="text"
                         value={form.image}
                         name ="image"
@@ -178,8 +181,8 @@ export default function CreatingDog () {
                         placeholder="Image URL..."
                         />
                 </div>
-                <h2 className="h2">Select Temperaments</h2>
-                <select className="temperaments_select" onChange={handleSelect}>
+                <h2>Select Temperaments</h2>
+                <select className={CreatingDogCSS.temps_select} onChange={handleSelect}>
                     <option disabled selected>Temperaments</option>
                     {temperaments.map(d => (
                     
@@ -189,16 +192,17 @@ export default function CreatingDog () {
                 
                 <br />
                 
-                <button className="submit_button" disabled={button} type="submit">Create Dog</button>
+                <button className={CreatingDogCSS.create_btn} disabled={button} type="submit">Create Dog</button>
 
             </form>
             
-            <div className="added_temperaments">{form.temperaments.map(el =>
-                    <div className="temperaments">
+            <div className={CreatingDogCSS.temps_container}>{form.temperaments.map(el =>
+                    <div className={CreatingDogCSS.added_temp}>
                         <p>{el}</p>
-                        <button className="botonX" onClick={() => handleDelete(el)}>X</button>
+                        <button className={CreatingDogCSS.temps_btn} onClick={() => handleDelete(el)}>X</button>
                     </div>
                 )}
+            </div>
             </div>
         </div>
     )
