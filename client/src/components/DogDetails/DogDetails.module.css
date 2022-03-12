@@ -1,0 +1,109 @@
+.container {
+    width: 100%;
+    height: 100%;
+
+    padding: 20px;
+
+    background-color: #ebebeb;
+
+    display: grid;
+    grid-template-rows: 50px auto 50px;
+    justify-content: center;
+
+}
+
+.dog_container {
+    background-color: white;
+    width: 600px;
+
+    border-radius: 16px;
+
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.2);
+}
+
+.img_container {
+    width: 600px;
+    height: 450px;
+    border-radius: 16px 16px 0px 0px;
+}
+
+img {
+    height: 450px;
+    width: 600px;
+    object-fit: cover;
+    border-radius: 16px 16px 0px 0px;
+}
+
+.details_container {
+    height: 350px;
+    width: 600px;
+
+    display: grid;
+    grid-template-rows: 50px 200px 100px;
+    align-items: center;
+}
+
+.h1_container {
+    width: 600px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-bottom: 1px solid #9D4EDD;
+}
+
+.dog_info {
+    display: flex;
+    justify-content: space-evenly;
+    height: 100px;
+    width: 600px;
+
+    align-items: flex-start;
+}
+
+.dog_info div {
+    width: 150px;
+    height: 50px;
+
+    padding: 10px;
+
+    border-top: 1px solid #9D4EDD;
+}
+
+.temperaments_container {
+    height: 200px;
+    width: 600px;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 20px;
+
+    justify-content: space-evenly;
+
+    
+}
+
+.temp {
+    height: 40px;
+    width: 110px;
+
+    background-color: #7B2CBF;
+
+    border-radius: 16px;
+    color: white;
+    font-weight: 700;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.2);
+
+}

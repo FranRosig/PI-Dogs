@@ -8,13 +8,17 @@ export default function Card({ image, name, temperaments, weight, id }) {
     
     return (
             <div className={CardCSS.container}>
-                <img className={CardCSS.img} src={image} alt="img not found" />
-                    <div className={CardCSS.overlay}>
-                        <h2>{name}</h2>
-                        <p>{fixedTemps?.join(", ")}</p>
-                        <h5>Between {weight[0]} and {weight[1]} Kg</h5>
-                        <a href={`http://localhost:3000/dogs/${id}`}>See Details</a>
-                    </div>
+                <div className={CardCSS.overlay}>
+                        <a href={`http://localhost:3000/dogs/${id}`}>Details</a>
+                </div>
+                <div className={CardCSS.img_container}> 
+                    <img className={CardCSS.img} src={image} alt="img not found" />  
+                </div>
+                <div className={CardCSS.data_container}>   
+                    <h2>{name}</h2>
+                    <p>{fixedTemps?.join(", ")}</p>
+                    <h5>Between {weight[0]} and {weight[1]} Kg</h5>   
+                </div>
             </div>
     );
 };

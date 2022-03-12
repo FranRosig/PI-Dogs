@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { postDog, getTemperaments } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
-import CreatingDogCSS from "./CreatingDog.module.css"
+import CreatingDogCSS from "./CreatingDog.module.css";
 
 const validate = (form) => {
     let errors = {}

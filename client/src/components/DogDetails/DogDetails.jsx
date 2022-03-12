@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../../actions";
 import { useEffect } from "react";
+import DogDetailsCSS from "./DogDetails.module.css"
 
 export default function DogDetails () {
     const dispatch = useDispatch()
@@ -14,32 +15,38 @@ export default function DogDetails () {
     },[dispatch])
 
     const dog = useSelector((state) => state.detail)
-    console.log(dog)
 
     let fixedTemps = []
     dog[0]?.temperaments?.forEach((el) => fixedTemps.push(el.name))
 
     return (
-        <div>
+        <div className={DogDetailsCSS.container}>
+            <Link to="/home">Volver</Link>
             {
-                dog.length > 0 ? 
-                    <div className="detail_container">
-                        <Link to="/home">Volver</Link>
-                        <div className="details">
-                            <div className="title"><h1>{dog[0].name}</h1></div>
-                            <div className="detail_temperaments">{fixedTemps.map(el => <div className="temp">{el}</div>)}</div>
-                            <div className="details2">
-                                <div className="info"><h2>Height:</h2><h4>Between {dog[0].height[0]} and {dog[0].height[1]} cms</h4></div>
-                                <div className="info"><h2>Weight:</h2><h4>Between {dog[0].weight[0]} and {dog[0].weight[1]} Kg</h4></div>
-                                <div className="info"><h2>Lifespan:</h2><h4>Between {dog[0].life_span} years</h4></div>
-                            </div>
-                        </div>
-                        <div className="image">
+                dog.length > 0 ?
+                    <div className={DogDetailsCSS.dog_container}>
+                        <div className={DogDetailsCSS.img_container}>
                             <img src={dog[0].image} alt="Imagen" />
                         </div>
-                    </div> : 
 
-                    <p>Loading...</p>
+                        <div className={DogDetailsCSS.details_container}>
+                            <div className={DogDetailsCSS.h1_container}>
+                                <h1> {dog[0].name} </h1>
+                            </div>
+                                <div className={DogDetailsCSS.temperaments_container}>
+                                    {fixedTemps.map(el => <div className={DogDetailsCSS.temp}>{el}</div>)}
+                                </div>
+                                <div className={DogDetailsCSS.dog_info}>
+                                    <div><h2>Height:</h2><h4>Between {dog[0].height[0]} and {dog[0].height[1]} cms</h4></div>
+                                    <div><h2>Weight:</h2><h4>Between {dog[0].weight[0]} and {dog[0].weight[1]} Kg</h4></div>
+                                    <div><h2>Lifespan:</h2><h4>Between {dog[0].life_span} years</h4></div>
+                                </div>
+
+                        </div>
+                    </div>
+
+                 :  
+                <p>Loading...</p>
             }
         </div>
     )
