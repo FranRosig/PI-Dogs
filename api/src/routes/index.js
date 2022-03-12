@@ -105,7 +105,6 @@ router.get("/temperament", async (req, res) => {
     const allTemp = await Temperament.findAll();    
     res.send(allTemp);
     
-    
 })
 
 router.post("/dog", async (req, res) => {
