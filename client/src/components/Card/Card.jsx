@@ -9,7 +9,7 @@ export default function Card({ image, name, temperaments, weight, id }) {
     return (
             <div className={CardCSS.container}>
                 <div className={CardCSS.overlay}>
-                        <a href={`http://localhost:3000/dogs/${id}`}>Details</a>
+                        <a href={`http://localhost:3000/dogs/${id}`}><h3>Details</h3></a>
                 </div>
                 <div className={CardCSS.img_container}> 
                     <img className={CardCSS.img} src={image} alt="img not found" />  

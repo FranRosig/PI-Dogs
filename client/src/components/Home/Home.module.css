@@ -56,6 +56,16 @@
 
 .filters_container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 16px;
+
+    width: 650px;
+    height: 60px;
+    background-color: white;
+
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.2);
 
     gap: 20px;
 }
@@ -66,15 +76,16 @@
 
     font-size: 12px;
 
-    border-color: #ebebeb;
+    border-color: white;
 
     outline: none;
     
     padding: 10px;
 
-    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.2);
-
+    transition: 0.5s;
 }
+
+
 
 .filters_container option {
     outline: none;

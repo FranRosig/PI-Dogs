@@ -95,11 +95,14 @@ export default function CreatingDog () {
 
     return (
         <div className={CreatingDogCSS.container}>
-            <div className={CreatingDogCSS.content}>
-            <Link className={CreatingDogCSS.home_btn} to="/home">Home</Link>
-            <h1>Create your dog!</h1>
-            <form className={CreatingDogCSS.form} onSubmit={handleSubmit}>
-                <div className={CreatingDogCSS.input_container}>
+            
+            <Link className={CreatingDogCSS.home_btn} to="/home"><h3>Home</h3></Link>
+            
+            <div className={CreatingDogCSS.form_container}>
+                <h1>Create your dog!</h1>
+            
+            <form className={CreatingDogCSS.form} onSubmit={handleSubmit} id="form">
+                <div className={CreatingDogCSS.name_lifespan_img_container}>
                     <input autoComplete="off"
                         type="text"
                         value={form.name}
@@ -111,8 +114,8 @@ export default function CreatingDog () {
 
                 <div className={CreatingDogCSS.error}>{errors.name && <p>{errors.name}</p>}</div>
                 
-                <div className={CreatingDogCSS.height_container}>
-                <div className={CreatingDogCSS.min_height_container}>
+                <div className={CreatingDogCSS.weight_height_container}>
+                <div className={CreatingDogCSS.min_container}>
                     <input autoComplete="off"
                         type="text"
                         value={form.min_height}
@@ -123,7 +126,7 @@ export default function CreatingDog () {
                     </div>
                 
 
-                <div className={CreatingDogCSS.max_height_container}>
+                <div className={CreatingDogCSS.max_container}>
                     <input autoComplete="off"
                         type="text"
                         value={form.max_height}
@@ -136,8 +139,8 @@ export default function CreatingDog () {
                 </div>
                 <div className={CreatingDogCSS.error}>{errors.height && <p>{errors.height}</p>}</div>
                 
-                <div className={CreatingDogCSS.weight_container}>
-                <div className={CreatingDogCSS.min_weight_container}>
+                <div className={CreatingDogCSS.weight_height_container}>
+                <div className={CreatingDogCSS.min_container}>
                     <input autoComplete="off"
                         type="text"
                         value={form.min_weight}
@@ -148,7 +151,7 @@ export default function CreatingDog () {
                     </div>
                 
 
-                <div className={CreatingDogCSS.max_height_container}>
+                <div className={CreatingDogCSS.max_container}>
                     <input autoComplete="off"
                         type="text"
                         value={form.max_weight}
@@ -161,7 +164,7 @@ export default function CreatingDog () {
                 </div>
                 <div className={CreatingDogCSS.error}>{errors.weight && <p>{errors.weight}</p>}</div>
                 
-                <div className={CreatingDogCSS.input_container}>
+                <div className={CreatingDogCSS.name_lifespan_img_container}>
                     <input autoComplete="off"
                         type="text"
                         value={form.life_span}
@@ -172,7 +175,7 @@ export default function CreatingDog () {
                     </div>
                 <div className={CreatingDogCSS.error}>{errors.life_span && <p>{errors.life_span}</p>}</div>
                 
-                <div className={CreatingDogCSS.input_container}>
+                <div className={CreatingDogCSS.name_lifespan_img_container}>
                     <input autoComplete="off"
                         type="text"
                         value={form.image}
@@ -181,29 +184,50 @@ export default function CreatingDog () {
                         placeholder="Image URL..."
                         />
                 </div>
-                <h2>Select Temperaments</h2>
-                <select className={CreatingDogCSS.temps_select} onChange={handleSelect}>
-                    <option disabled selected>Temperaments</option>
-                    {temperaments.map(d => (
+
+                <div className={CreatingDogCSS.h2_container}>
+                    <h2>Select Temperaments</h2>
+                </div>
+
+                <div className={CreatingDogCSS.select_container}>
+                    <select className={CreatingDogCSS.temps_select} onChange={handleSelect}>
+                        <option disabled selected>Temperaments</option>
+                        {temperaments.map(d => (
                     
-                    <option value={d.name}>{d.name}</option>
-                    ))}
-                </select>
+                        <option value={d.name}>{d.name}</option>
+                        ))}
+                    </select>
+                </div>
                 
                 <br />
+
                 
-                <button className={CreatingDogCSS.create_btn} disabled={button} type="submit">Create Dog</button>
 
             </form>
+
+            </div>
+
+            <div className={CreatingDogCSS.create_btn_container}>
+                <button className={CreatingDogCSS.create_btn} disabled={button} type="submit" form="form">Create Dog</button>
+            </div>
+
+            <div className={CreatingDogCSS.temps_container}>
+                <div className={CreatingDogCSS.temps_h1_container}>
+                    <h1>Temperaments</h1>
+                </div>
+                <div className={CreatingDogCSS.selected_temps_container}>  
+                    {form.temperaments.map(el =>
+                        <div className={CreatingDogCSS.added_temp}>
+                            <p>{el}</p>
+                            <div className={CreatingDogCSS.temps_btn_overlay}>
+                                <button className={CreatingDogCSS.temps_btn} onClick={() => handleDelete(el)}><i class="gg-close-o"></i></button>
+                            </div>
+                        </div>
+                    )}
+                </div>
+                      
+            </div>
             
-            <div className={CreatingDogCSS.temps_container}>{form.temperaments.map(el =>
-                    <div className={CreatingDogCSS.added_temp}>
-                        <p>{el}</p>
-                        <button className={CreatingDogCSS.temps_btn} onClick={() => handleDelete(el)}>X</button>
-                    </div>
-                )}
-            </div>
-            </div>
         </div>
     )
 }

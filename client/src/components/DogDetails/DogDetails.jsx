@@ -21,7 +21,12 @@ export default function DogDetails () {
 
     return (
         <div className={DogDetailsCSS.container}>
-            <Link to="/home">Volver</Link>
+            
+                <Link to="/home">
+                    <h3>Home</h3>
+                </Link>
+           
+                
             {
                 dog.length > 0 ?
                     <div className={DogDetailsCSS.dog_container}>
