@@ -16,6 +16,8 @@ export default function DogDetails () {
 
     const dog = useSelector((state) => state.detail)
 
+    console.log(dog)
+
     let fixedTemps = []
     dog[0]?.temperaments?.forEach((el) => fixedTemps.push(el.name))
 
