@@ -46,7 +46,7 @@ export default function DogDetails () {
                                 <div className={DogDetailsCSS.dog_info}>
                                     <div><h2>Height:</h2><h4>Between {dog[0].height[0]} and {dog[0].height[1]} cms</h4></div>
                                     <div><h2>Weight:</h2><h4>Between {dog[0].weight[0]} and {dog[0].weight[1]} Kg</h4></div>
-                                    <div><h2>Lifespan:</h2><h4>Between {dog[0].life_span} years</h4></div>
+                                    <div><h2>Lifespan:</h2><h4>Between {dog[0].life_span} </h4></div>
                                 </div>
 
                         </div>

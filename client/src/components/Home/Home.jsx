@@ -32,6 +32,7 @@ export default function Home () {
 
     const handleFilterByTemperament = (e) => {
         dispatch(FilterByTemperament(e.target.value))
+        setCurrentPage(1)
     }
 
     const handleFilterBySource = (e) => {
